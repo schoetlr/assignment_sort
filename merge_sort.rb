@@ -13,17 +13,16 @@ def merge_sort(array)
 
 end
 
-
-
 def merge(left, right)
   new_array = []
   lptr, rptr = 0, 0
 
   while (lptr < left.length) && (rptr < right.length)
-    if left[lptr] < right[rptr]
+    case (left[lptr] <=> right[rptr])
+    when -1
       new_array.push(left[lptr])
       lptr += 1
-    else
+    when 1
       new_array.push(right[rptr])
       rptr += 1
     end
