@@ -1,6 +1,7 @@
 def merge_sort(array)
-  return array if array.length == 1
-  mid_point = arr.length / 2
+  len = array.length
+  return array if len == 1
+  mid_point = len == 2 ? 0 : len / 2
 
   left = array[0..mid_point]
   right = array[(mid_point + 1)..-1]
@@ -18,6 +19,27 @@ def merge(left, right)
   new_array = []
   lptr, rptr = 0, 0
 
-  if 
+  while (lptr < left.length) && (rptr < right.length)
+    if left[lptr] < right[rptr]
+      new_array.push(left[lptr])
+      lptr += 1
+    else
+      new_array.push(right[rptr])
+      rptr += 1
+    end
+  end
 
+  while lptr < left.length
+    new_array.push(left[lptr])
+    lptr += 1
+  end
+
+  while rptr < right.length
+    new_array.push(right[rptr])
+    rptr += 1
+  end
+
+  new_array
 end
+
+puts merge_sort([1,3,7,2,5]) == [1,2,3,5,7]
